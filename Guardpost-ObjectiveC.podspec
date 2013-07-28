@@ -16,4 +16,8 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 1.3.1'
+  s.prefix_header_contents = <<-EOS
+  #import <SystemConfiguration/SystemConfiguration.h>
+  #import <MobileCoreServices/MobileCoreServices.h>
+EOS
 end
