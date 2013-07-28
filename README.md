@@ -9,7 +9,7 @@ An objective-C implementation of Mailgun's Guardpost email validation service
 The easiest way to install GuardPost-ObjectiveC is using cocoapods. Add the
 following to your `Podfile`:
 
-    pod 'Guardpost-ObjectiveC', :git => 'git@github.com:sammyd/GuardPost-ObjectiveC.git'
+    pod 'GuardPost-ObjectiveC', '~>0.1.1'
 
 And then run:
 
