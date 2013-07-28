@@ -95,7 +95,7 @@ Feel free to raise an issue, or send a pull request. All contributions welcome!
 ## About
 
 This project was written by Sam Davies. You should have a peruse of his blog at
-(iwantmyreal.name)[http://iwantmyreal.name/] and follow him on twitter
+[iwantmyreal.name](http://iwantmyreal.name/) and follow him on twitter
 [@iwantmyrealname](https://twitter.com/iwantmyrealname) or ADN
 [@samd](https://app.net/samd).
 
