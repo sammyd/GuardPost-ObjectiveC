@@ -1,3 +1,7 @@
  platform :ios, '5.0'
 
  podspec :path => "../Guardpost-ObjectiveC.podspec"
+
+ target "GuardPost-ObjectiveCTests", :exclusive => true do
+    pod 'SenTestingKitAsync', '~> 1.0'
+end

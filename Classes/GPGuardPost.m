@@ -17,7 +17,9 @@
 }
 
 #pragma mark - API Methods
-+ (void)validateAddress:(NSString *)emailAddress resultBlock:(GPGuardPostEmailValidation)resultBlock
++ (void)validateAddress:(NSString *)emailAddress
+                success:(GPGuardPostEmailValidation)successBlock
+                failure:(GPGuardFailure)failureBlock
 {
     NSString *endpointPath = @"address/validate";
     
@@ -35,15 +37,22 @@
                 NSString *suggestion = [self checkForNull:[responseObject valueForKey:@"did_you_mean"]];
                 
                 // Call the result_block with the correct results
-                resultBlock(valid, suggestion);
+                if(successBlock) {
+                    successBlock(valid, suggestion);
+                }
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 // This didn't work
                 NSLog(@"There was a problem validating the email address.");
+                if(failureBlock) {
+                    failureBlock(error);
+                }
             }];
 }
 
-+ (void)parseListOfAddresses:(NSString *)listOfAddresses resultBlock:(GPGuardPostEmailListParse)resultBlock
++ (void)parseListOfAddresses:(NSString *)listOfAddresses
+                     success:(GPGuardPostEmailListParse)successBlock
+                     failure:(GPGuardFailure)failureBlock
 {
     NSString *endpointPath = @"address/parse";
     
@@ -57,11 +66,16 @@
                 NSArray *unparseable = [self checkForNull:[responseObject valueForKey:@"unparseable"]];
 
                 // And return the results
-                resultBlock(parsed, unparseable);
+                if(successBlock) {
+                    successBlock(parsed, unparseable);
+                }
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 // Failure
                 NSLog(@"There was a problem parsing the email address list");
+                if(failureBlock) {
+                    failureBlock(error);
+                }
             }];
 }
 

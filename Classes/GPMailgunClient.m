@@ -38,6 +38,15 @@ static NSString * const kGPMailgunClientBaseURL = @"https://api.mailgun.net/v2/"
     return self;
 }
 
+- (void)getPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+{
+    if(!self.publicAPIKey || [self.publicAPIKey isEqualToString:@""]) {
+        @throw [NSException exceptionWithName:@"AuthenticationException" reason:@"An API key is required to use MailGun. Sign up for free at http://mailgun.net/" userInfo:nil];
+    }
+    // Now let's go up
+    [super getPath:path parameters:parameters success:success failure:failure];
+}
+
 #pragma mark - Property overrides
 - (void)setPublicAPIKey:(NSString *)publicAPIKey
 {

@@ -10,6 +10,7 @@
 
 typedef void(^GPGuardPostEmailValidation)(BOOL validity, NSString *suggestion);
 typedef void(^GPGuardPostEmailListParse)(NSArray *parsed, NSArray *unparseable);
+typedef void(^GPGuardFailure)(NSError *error);
 
 
 @interface GPGuardPost : NSObject
@@ -18,7 +19,12 @@ typedef void(^GPGuardPostEmailListParse)(NSArray *parsed, NSArray *unparseable);
 + (void)setPublicAPIKey:(NSString *)apiKey;
 
 #pragma mark - Valdation methods
-+ (void)validateAddress:(NSString *)emailAddress resultBlock:(GPGuardPostEmailValidation)resultBlock;
-+ (void)parseListOfAddresses:(NSString *)listOfAddresses resultBlock:(GPGuardPostEmailListParse)resultBlock;
++ (void)validateAddress:(NSString *)emailAddress
+                success:(GPGuardPostEmailValidation)successBlock
+                failure:(GPGuardFailure)failureBlock;
+
++ (void)parseListOfAddresses:(NSString *)listOfAddresses
+                     success:(GPGuardPostEmailListParse)successBlock
+                     failure:(GPGuardFailure)failureBlock;
 
 @end
