@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
-  Guardpost-ObjectiveC: 49802dcfa86bcd645d3ddc47a88e57696dac11b6
+  Guardpost-ObjectiveC: f0a36cbd0c0b1f27ea2b4704eea0f2454f48c695
 
 COCOAPODS: 0.22.3

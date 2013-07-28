@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPViewController : UIViewController
+@interface GPViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UILabel *lblValid;
+@property (weak, nonatomic) IBOutlet UILabel *lblDidYouMean;
+@property (weak, nonatomic) IBOutlet UIButton *btnValidate;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
+
+- (IBAction)btnValidatePressed:(id)sender;
 
 @end
